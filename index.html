@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nalayak Chaiwala | Jaipur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            <img src="logo.png" alt="Nalayak Chaiwala Logo">
+            <span>Nalayak Chaiwala</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <img src="logo.png" alt="Nalayak Chaiwala" class="hero-logo">
+
+        <h1>Nalayak Chaiwala</h1>
+
+        <h2>Chai Aisi, Mood Ban Jaye! ❤️</h2>
+
+        <p>
+            Chai, snacks, pizza, burger aur full desi vibes!
+        </p>
+
+        <button onclick="orderChai()">
+            Order Now ☕
+        </button>
+
+    </section>
+
+
+    <!-- MENU -->
+    <section id="menu">
+
+        <h2>🍽️ Our Menu</h2>
+
+        <p class="menu-subtitle">
+            Tasty food, fresh ingredients aur full desi taste ❤️
+        </p>
+
+        <div class="menu-container">
+
+            <!-- MASALA CHAI -->
+            <div class="card">
+
+                <div class="chai-icon">☕</div>
+
+                <h3>Masala Chai</h3>
+
+                <p>Desi masalon ke saath kadak chai.</p>
+
+                <span>₹20</span>
+
+                <button onclick="orderItem('Masala Chai')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- ADRAK CHAI -->
+            <div class="card">
+
+                <div class="chai-icon">🫚</div>
+
+                <h3>Adrak Chai</h3>
+
+                <p>Fresh adrak wali garma-garam chai.</p>
+
+                <span>₹25</span>
+
+                <button onclick="orderItem('Adrak Chai')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- ELAICHI CHAI -->
+            <div class="card">
+
+                <div class="chai-icon">🌿</div>
+
+                <h3>Elaichi Chai</h3>
+
+                <p>Khushboo aur taste se bharpoor.</p>
+
+                <span>₹25</span>
+
+                <button onclick="orderItem('Elaichi Chai')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- KULHAD CHAI -->
+            <div class="card">
+
+                <div class="chai-icon">🥛</div>
+
+                <h3>Kulhad Chai</h3>
+
+                <p>Desi kulhad mein special chai.</p>
+
+                <span>₹30</span>
+
+                <button onclick="orderItem('Kulhad Chai')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- PIZZA -->
+            <div class="card">
+
+                <div class="chai-icon">🍕</div>
+
+                <h3>Pizza</h3>
+
+                <p>Cheesy aur delicious pizza.</p>
+
+                <span>₹99</span>
+
+                <button onclick="orderItem('Pizza')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- BURGER -->
+            <div class="card">
+
+                <div class="chai-icon">🍔</div>
+
+                <h3>Burger</h3>
+
+                <p>Fresh aur tasty loaded burger.</p>
+
+                <span>₹79</span>
+
+                <button onclick="orderItem('Burger')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- FRENCH FRIES -->
+            <div class="card">
+
+                <div class="chai-icon">🍟</div>
+
+                <h3>French Fries</h3>
+
+                <p>Crispy aur golden French fries.</p>
+
+                <span>₹59</span>
+
+                <button onclick="orderItem('French Fries')">
+                    Order Now
+                </button>
+
+            </div>
+
+
+            <!-- SHAKE -->
+            <div class="card">
+
+                <div class="chai-icon">🥤</div>
+
+                <h3>Shake</h3>
+
+                <p>Thick, creamy aur delicious shake.</p>
+
+                <span>₹89</span>
+
+                <button onclick="orderItem('Shake')">
+                    Order Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <img src="logo.png" alt="Nalayak Chaiwala Logo" class="about-logo">
+
+        <h2>❤️ About Nalayak Chaiwala</h2>
+
+        <p>
+            Nalayak Chaiwala mein chai sirf ek drink nahi,
+            balki doston ke saath time spend karne ka bahana hai.
+            Garma-garam chai, tasty snacks aur full desi vibes.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2>📞 Contact Us</h2>
+
+        <p>📱 WhatsApp: 9214211171</p>
+
+        <p>
+            📍 Giriraj Nagar, Dholai, Jaipur,
+            Rajasthan - 302020
+        </p>
+
+        <p>
+            🕐 Opening Hours: 09:00 AM – 11:00 PM
+        </p>
+
+        <button onclick="contactUs()">
+            WhatsApp Us ☕
+        </button>
+
+        <a
+            href="https://www.google.com/maps/search/?api=1&query=Nalayak+Chaiwala+Giriraj+Nagar+Dholai+Jaipur+Rajasthan+302020"
+            target="_blank"
+            class="map-button">
+            📍 Get Directions
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>© 2026 Nalayak Chaiwala</p>
+
+        <p>Made with ☕ ❤️</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
