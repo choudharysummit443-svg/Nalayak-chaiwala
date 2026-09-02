@@ -1,73 +1,60 @@
+// =========================
+// WHATSAPP ORDER
+// =========================
+
+const phone = "919214211171";
+
+
+// =========================
+// CART
+// =========================
+
 let cart = [];
 
 
-/* ORDER CHAI */
-
-function orderChai() {
-
-    const phone = "919214211171";
-
-    const message =
-        "Hello Nalayak Chaiwala! Mujhe chai order karni hai. ☕";
-
-    window.open(
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
-}
-
-
-/* ADD TO CART */
-
-function addToCart(name, price) {
+// Add item to cart
+function addToCart(item, price) {
 
     const existingItem = cart.find(
-        item => item.name === name
+        product => product.name === item
     );
 
     if (existingItem) {
-
         existingItem.quantity++;
-
     } else {
-
         cart.push({
-            name: name,
+            name: item,
             price: price,
             quantity: 1
         });
-
     }
 
     updateCart();
 
-    showCart();
+    // Open cart
+    openCart();
 }
 
 
-/* UPDATE CART */
-
+// Update cart display
 function updateCart() {
 
-    const cartCount =
-        document.getElementById("cartCount");
-
-    let totalItems = 0;
-
-    cart.forEach(item => {
-        totalItems += item.quantity;
-    });
-
-    cartCount.textContent = totalItems;
-
-
-    const cartItems =
-        document.getElementById("cartItems");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
 
     cartItems.innerHTML = "";
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+            <p class="empty-cart">
+                Your cart is empty 🛒
+            </p>
+        `;
+
+        cartTotal.innerText = "0";
+        return;
+    }
 
 
     let total = 0;
@@ -77,47 +64,66 @@ function updateCart() {
 
         total += item.price * item.quantity;
 
-        cartItems.innerHTML += `
 
-            <div class="cart-item">
+        const cartItem = document.createElement("div");
 
-                <div>
-                    <strong>${item.name}</strong>
-                    <br>
+        cartItem.className = "cart-item";
+
+
+        cartItem.innerHTML = `
+
+            <div>
+                <h4>${item.name}</h4>
+
+                <p>
                     ₹${item.price} × ${item.quantity}
-                </div>
+                </p>
+            </div>
 
-                <div class="quantity">
 
-                    <button onclick="decreaseItem(${index})">
-                        −
-                    </button>
+            <div class="quantity-controls">
 
-                    <span>
-                        ${item.quantity}
-                    </span>
+                <button
+                    class="quantity-btn"
+                    onclick="decreaseQuantity(${index})">
+                    −
+                </button>
 
-                    <button onclick="increaseItem(${index})">
-                        +
-                    </button>
 
-                </div>
+                <span class="quantity">
+                    ${item.quantity}
+                </span>
+
+
+                <button
+                    class="quantity-btn"
+                    onclick="increaseQuantity(${index})">
+                    +
+                </button>
 
             </div>
 
+
+            <button
+                class="remove-item"
+                onclick="removeItem(${index})">
+                🗑️
+            </button>
+
         `;
+
+
+        cartItems.appendChild(cartItem);
 
     });
 
 
-    document.getElementById("cartTotal").textContent =
-        "Total: ₹" + total;
+    cartTotal.innerText = total;
 }
 
 
-/* INCREASE */
-
-function increaseItem(index) {
+// Increase quantity
+function increaseQuantity(index) {
 
     cart[index].quantity++;
 
@@ -125,13 +131,14 @@ function increaseItem(index) {
 }
 
 
-/* DECREASE */
+// Decrease quantity
+function decreaseQuantity(index) {
 
-function decreaseItem(index) {
+    if (cart[index].quantity > 1) {
 
-    cart[index].quantity--;
+        cart[index].quantity--;
 
-    if (cart[index].quantity <= 0) {
+    } else {
 
         cart.splice(index, 1);
 
@@ -141,76 +148,52 @@ function decreaseItem(index) {
 }
 
 
-/* SHOW CART */
+// Remove item
+function removeItem(index) {
 
-function showCart() {
+    cart.splice(index, 1);
 
-    document.getElementById("cartPopup").style.display =
-        "flex";
-
+    updateCart();
 }
 
 
-/* CLOSE CART */
+// Open cart
+function openCart() {
 
+    const cartPanel =
+        document.getElementById("cartPanel");
+
+    cartPanel.classList.add("active");
+}
+
+
+// Close cart
 function closeCart() {
 
-    document.getElementById("cartPopup").style.display =
-        "none";
+    const cartPanel =
+        document.getElementById("cartPanel");
 
+    cartPanel.classList.remove("active");
 }
 
 
-/* SEARCH */
-
-function searchMenu() {
-
-    const search =
-        document.getElementById("menuSearch")
-        .value
-        .toLowerCase();
-
-    const cards =
-        document.querySelectorAll(".card");
-
-
-    cards.forEach(card => {
-
-        const name =
-            card.getAttribute("data-name");
-
-        if (name.includes(search)) {
-
-            card.style.display = "";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-}
-
-
-/* WHATSAPP CART ORDER */
+// =========================
+// WHATSAPP CART ORDER
+// =========================
 
 function orderCart() {
 
     if (cart.length === 0) {
 
-        alert("Your cart is empty! 🛒");
+        alert("Your cart is empty 🛒");
 
         return;
     }
 
 
-    const phone = "919214211171";
-
     let message =
         "Hello Nalayak Chaiwala! ☕\n\n" +
-        "Mera order:\n";
+        "Mujhe ye order karna hai:\n\n";
 
 
     let total = 0;
@@ -223,7 +206,9 @@ function orderCart() {
 
         total += itemTotal;
 
+
         message +=
+            "• " +
             item.name +
             " × " +
             item.quantity +
@@ -235,9 +220,10 @@ function orderCart() {
 
 
     message +=
-        "\nTotal = ₹" +
+        "\n💰 Total: ₹" +
         total +
-        "\n\nThank you! ❤️";
+        "\n\n" +
+        "Thank you! ❤️";
 
 
     window.open(
@@ -247,19 +233,60 @@ function orderCart() {
         encodeURIComponent(message),
         "_blank"
     );
-
 }
 
 
-/* CONTACT */
+// =========================
+// OLD WHATSAPP BUTTON
+// =========================
+
+function orderChai() {
+
+    const message =
+        "Hello Nalayak Chaiwala! ☕ " +
+        "Mujhe chai order karni hai.";
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+
+// =========================
+// OLD ORDER ITEM BUTTON
+// =========================
+
+function orderItem(item) {
+
+    const message =
+        "Hello Nalayak Chaiwala! ☕ " +
+        "Mujhe " +
+        item +
+        " order karni hai.";
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+
+// =========================
+// CONTACT
+// =========================
 
 function contactUs() {
 
-    const phone = "919214211171";
-
     window.open(
-        "https://wa.me/" + phone,
+        "https://wa.me/" +
+        phone,
         "_blank"
     );
-
 }

@@ -1,302 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nalayak Chaiwala | Best Tea & Snacks in Jaipur</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Nalayak Chaiwala | Best Tea, Pizza & Burger in Jaipur</title>
 
     <meta name="description"
-        content="Nalayak Chaiwala in Giriraj Nagar, Dholai, Jaipur. Fresh chai, pizza, burger, fries and shakes. Order on WhatsApp.">
+        content="Nalayak Chaiwala in Giriraj Nagar, Dholai, Jaipur. Fresh chai, pizza, burger, French fries and shakes. Order now on WhatsApp.">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">
-        <img src="logo.png" alt="Nalayak Chaiwala Logo">
-        <span>Nalayak Chaiwala</span>
-    </div>
+    <!-- HEADER -->
+    <header>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <div class="logo">
+            <img src="logo.png" alt="Nalayak Chaiwala Logo">
+            <span>Nalayak Chaiwala</span>
+        </div>
 
-    <button class="cart-btn" onclick="showCart()">
-        🛒 Cart <span id="cartCount">0</span>
-    </button>
-</header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <button class="cart-top" onclick="openCart()">
+                🛒 Cart <span id="cartCount">0</span>
+            </button>
+        </nav>
+
+    </header>
 
 
-<!-- HERO -->
-<section class="hero" id="home">
+    <!-- HOME -->
+    <section class="hero" id="home">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <div class="hero-text">
-            <p class="small-title">☕ JAIPUR'S LOCAL FAVOURITE</p>
+            <img src="logo.png"
+                class="hero-logo"
+                alt="Nalayak Chaiwala">
 
-            <h1>Nalayak<br>Chaiwala</h1>
+            <h1>Nalayak Chaiwala</h1>
 
             <h2>Chai, Snacks & Masti ☕</h2>
 
             <p>
-                Fresh chai, delicious snacks and full-on desi vibes.
-                Your favourite tea & snacks destination in Jaipur!
+                Fresh chai, tasty snacks and full-on masti
+                in Jaipur!
             </p>
 
-            <button class="main-btn" onclick="orderChai()">
-                💬 Order Chai on WhatsApp
+            <button onclick="orderChai()">
+                ☕ Order Chai on WhatsApp
             </button>
+
         </div>
 
-        <div class="hero-cup">
-            ☕
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
-<!-- MENU -->
-<section id="menu">
+    <!-- MENU -->
+    <section id="menu">
 
-    <p class="section-label">OUR SPECIAL MENU</p>
+        <h2>Our Menu ☕🍕🍔</h2>
 
-    <h2>Our Menu ☕🍕🍔</h2>
-
-    <p class="menu-subtitle">
-        Fresh, tasty and pocket-friendly food 😋
-    </p>
-
-    <!-- SEARCH -->
-    <div class="search-box">
-        <input
-            type="text"
-            id="menuSearch"
-            placeholder="🔍 Search your favourite food..."
-            onkeyup="searchMenu()"
-        >
-    </div>
+        <p class="menu-subtitle">
+            Fresh, tasty and pocket-friendly food 😊
+        </p>
 
 
-    <!-- MENU CARDS -->
-    <div class="menu-container" id="menuContainer">
+        <!-- SEARCH -->
+        <div class="search-box">
 
-        <!-- MASALA CHAI -->
-        <div class="card" data-name="masala chai">
-            <div class="food-icon">☕</div>
+            <span>🔍</span>
 
-            <h3>Masala Chai</h3>
+            <input
+                type="text"
+                id="menuSearch"
+                placeholder="Search your favourite food..."
+                onkeyup="searchMenu()">
 
-            <p>Special masala chai with amazing taste.</p>
-
-            <span>₹20</span>
-
-            <button onclick="addToCart('Masala Chai',20)">
-                Add to Cart 🛒
-            </button>
         </div>
 
 
-        <!-- ADRAK CHAI -->
-        <div class="card" data-name="adrak chai">
-            <div class="food-icon">☕</div>
+        <!-- MENU CARDS -->
+        <div class="menu-container" id="menuContainer">
 
-            <h3>Adrak Chai</h3>
 
-            <p>Hot ginger tea with fresh flavour.</p>
+            <!-- MASALA CHAI -->
+            <div class="card menu-item">
 
-            <span>₹25</span>
+                <div class="chai-icon">☕</div>
 
-            <button onclick="addToCart('Adrak Chai',25)">
-                Add to Cart 🛒
-            </button>
+                <h3>Masala Chai</h3>
+
+                <p>
+                    Special masala chai with amazing taste.
+                </p>
+
+                <span>₹20</span>
+
+                <button onclick="addToCart('Masala Chai',20)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- ADRAK CHAI -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">☕</div>
+
+                <h3>Adrak Chai</h3>
+
+                <p>
+                    Hot ginger tea with fresh flavour.
+                </p>
+
+                <span>₹25</span>
+
+                <button onclick="addToCart('Adrak Chai',25)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- ELAICHI CHAI -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">☕</div>
+
+                <h3>Elaichi Chai</h3>
+
+                <p>
+                    Delicious cardamom tea.
+                </p>
+
+                <span>₹25</span>
+
+                <button onclick="addToCart('Elaichi Chai',25)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- KULHAD CHAI -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">🥤</div>
+
+                <h3>Kulhad Chai</h3>
+
+                <p>
+                    Desi kulhad mein special chai.
+                </p>
+
+                <span>₹30</span>
+
+                <button onclick="addToCart('Kulhad Chai',30)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PIZZA -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">🍕</div>
+
+                <h3>Pizza</h3>
+
+                <p>
+                    Cheesy aur delicious pizza.
+                </p>
+
+                <span>₹99</span>
+
+                <button onclick="addToCart('Pizza',99)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- BURGER -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">🍔</div>
+
+                <h3>Burger</h3>
+
+                <p>
+                    Juicy and tasty burger.
+                </p>
+
+                <span>₹79</span>
+
+                <button onclick="addToCart('Burger',79)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- FRENCH FRIES -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">🍟</div>
+
+                <h3>French Fries</h3>
+
+                <p>
+                    Crispy golden French fries.
+                </p>
+
+                <span>₹59</span>
+
+                <button onclick="addToCart('French Fries',59)">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- SHAKE -->
+            <div class="card menu-item">
+
+                <div class="chai-icon">🥤</div>
+
+                <h3>Shake</h3>
+
+                <p>
+                    Cold and delicious shake.
+                </p>
+
+                <span>₹89</span>
+
+                <button onclick="addToCart('Shake',89)">
+                    Add to Cart
+                </button>
+
+            </div>
+
         </div>
 
-
-        <!-- ELAICHI CHAI -->
-        <div class="card" data-name="elaichi chai">
-            <div class="food-icon">☕</div>
-
-            <h3>Elaichi Chai</h3>
-
-            <p>Delicious cardamom tea.</p>
-
-            <span>₹25</span>
-
-            <button onclick="addToCart('Elaichi Chai',25)">
-                Add to Cart 🛒
-            </button>
-        </div>
+    </section>
 
 
-        <!-- KULHAD CHAI -->
-        <div class="card" data-name="kulhad chai">
-            <div class="food-icon">🍵</div>
+    <!-- ABOUT -->
+    <section id="about">
 
-            <h3>Kulhad Chai</h3>
+        <img src="logo.png"
+            class="about-logo"
+            alt="Nalayak Chaiwala">
 
-            <p>Desi kulhad mein special chai.</p>
+        <h2>About Us</h2>
 
-            <span>₹30</span>
+        <p>
+            Nalayak Chaiwala is your local chai and snacks
+            destination in Jaipur. We serve fresh chai,
+            delicious snacks and tasty fast food at pocket-friendly
+            prices.
+        </p>
 
-            <button onclick="addToCart('Kulhad Chai',30)">
-                Add to Cart 🛒
-            </button>
-        </div>
-
-
-        <!-- PIZZA -->
-        <div class="card" data-name="pizza">
-            <div class="food-icon">🍕</div>
-
-            <h3>Pizza</h3>
-
-            <p>Cheesy aur delicious pizza.</p>
-
-            <span>₹99</span>
-
-            <button onclick="addToCart('Pizza',99)">
-                Add to Cart 🛒
-            </button>
-        </div>
+    </section>
 
 
-        <!-- BURGER -->
-        <div class="card" data-name="burger">
-            <div class="food-icon">🍔</div>
+    <!-- CONTACT -->
+    <section id="contact">
 
-            <h3>Burger</h3>
+        <h2>Contact Us 📞</h2>
 
-            <p>Tasty and crispy fresh burger.</p>
+        <p>
+            📍 Giriraj Nagar, Dholai, Jaipur, Rajasthan 302020
+        </p>
 
-            <span>₹79</span>
+        <p>
+            📞 +91 92142 11171
+        </p>
 
-            <button onclick="addToCart('Burger',79)">
-                Add to Cart 🛒
-            </button>
-        </div>
+        <p>
+            🕘 Open: 09:00 AM – 11:00 PM
+        </p>
 
-
-        <!-- FRIES -->
-        <div class="card" data-name="french fries fries">
-            <div class="food-icon">🍟</div>
-
-            <h3>French Fries</h3>
-
-            <p>Crispy golden French fries.</p>
-
-            <span>₹59</span>
-
-            <button onclick="addToCart('French Fries',59)">
-                Add to Cart 🛒
-            </button>
-        </div>
-
-
-        <!-- SHAKE -->
-        <div class="card" data-name="shake">
-            <div class="food-icon">🥤</div>
-
-            <h3>Shake</h3>
-
-            <p>Thick and tasty chilled shake.</p>
-
-            <span>₹89</span>
-
-            <button onclick="addToCart('Shake',89)">
-                Add to Cart 🛒
-            </button>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-<section id="about" class="about">
-
-    <p class="section-label">ABOUT US</p>
-
-    <h2>About Nalayak Chaiwala ❤️</h2>
-
-    <p>
-        Nalayak Chaiwala is your local tea and snacks destination
-        in Jaipur. We believe good chai, tasty food and great vibes
-        can make any day better.
-    </p>
-
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact">
-
-    <p class="section-label">GET IN TOUCH</p>
-
-    <h2>Contact Us 📞</h2>
-
-    <div class="contact-box">
-
-        <p>📍 Giriraj Nagar, Dholai, Jaipur, Rajasthan 302020</p>
-
-        <p>📱 9214211171</p>
-
-        <p>🕘 Open: 09:00 AM – 11:00 PM</p>
-
-        <button class="main-btn" onclick="contactUs()">
-            💬 WhatsApp Us
+        <button onclick="contactUs()">
+            💬 Contact on WhatsApp
         </button>
 
+        <a
+            class="map-button"
+            href="https://www.google.com/maps/search/?api=1&query=Giriraj+Nagar+Dholai+Jaipur+Rajasthan+302020"
+            target="_blank">
+            📍 Open Google Maps
+        </a>
+
+    </section>
+
+
+    <!-- CART OVERLAY -->
+    <div id="cartOverlay"
+        class="cart-overlay"
+        onclick="closeCart()">
     </div>
 
-</section>
+
+    <!-- CART -->
+    <div id="cartPanel" class="cart-panel">
+
+        <div class="cart-header">
+
+            <h2>🛒 Your Cart</h2>
+
+            <button
+                class="close-cart"
+                onclick="closeCart()">
+                ×
+            </button>
+
+        </div>
 
 
-<!-- CART POPUP -->
-<div id="cartPopup" class="cart-popup">
+        <div id="cartItems" class="cart-items">
 
-    <div class="cart-box">
+            <p class="empty-cart">
+                Your cart is empty 🛒
+            </p>
 
-        <button class="close-btn" onclick="closeCart()">✕</button>
+        </div>
 
-        <h2>🛒 Your Cart</h2>
 
-        <div id="cartItems"></div>
+        <div class="cart-bottom">
 
-        <h3 id="cartTotal">Total: ₹0</h3>
+            <h3>
+                Total:
+                ₹<span id="cartTotal">0</span>
+            </h3>
 
-        <button class="main-btn" onclick="orderCart()">
-            💬 Order on WhatsApp
-        </button>
+            <button
+                class="whatsapp-order"
+                onclick="orderCart()">
+                💬 Order on WhatsApp
+            </button>
+
+        </div>
 
     </div>
 
-</div>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Nalayak Chaiwala
+        </p>
+
+        <p>
+            Made with ❤️ in Jaipur
+        </p>
+
+    </footer>
 
 
-<!-- FOOTER -->
-<footer>
-
-    <h3>Nalayak Chaiwala ☕</h3>
-
-    <p>Chai • Snacks • Masti</p>
-
-    <p>© 2026 Nalayak Chaiwala. All Rights Reserved.</p>
-
-</footer>
-
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
