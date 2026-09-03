@@ -38,6 +38,9 @@ function addToCart(item, price) {
 
 // Update cart display
 function updateCart() {
+    const cartCount = document.getElementById("cartCount");
+const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+cartCount.innerText = totalItems;
 
     const cartItems = document.getElementById("cartItems");
     const cartTotal = document.getElementById("cartTotal");
